@@ -4,4 +4,5 @@ pandas
 #torch ## should past the one with external link to a wheel pre-build or whatever, ref to official website ## also, probably don't bother to install such huge pkg
 requests ## for data fetching on the web
 selenium ## advance browsing data on the web
+pysnooper ## compact python debugger
 
