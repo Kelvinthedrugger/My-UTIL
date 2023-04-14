@@ -13,6 +13,9 @@ def download_file(url, fname=""):
                     f.write(chunk)
     return fname
 
+
+# Callbacks
+
 ## decorator for multi-processing
 ## ref to my impl: https://github.com/Kelvinthedrugger/-AI-/blob/main/PLURK/PLURK_EZ_GET/ultimate_fetch.py#L132
 "not tested! not sure if @mult is better than just mult(func, tasks)"
@@ -38,4 +41,31 @@ def mult(func, tasks):
         for process in processes:
             process.join()
     return wrap_it
+
+
+## timing function
+from time import time, sleep
+from functools import wraps
+def timeit(func):
+    @wraps
+    def wrapper(*args, **kwargs):
+        start = time()
+        func(*args, **kwargs)
+        end = time()
+        print("total time spent on %s: %.3f" % (func.__name__, end - start))
+    return wrapper
+
+## print_(), a slightly more convenient print()
+print_it=True # prints it like print, else, don't print a thing
+def print_fn(func):
+    "decorator for print_(), can be used to anything that needs to be controlled by print_it (defaults to True)"
+    def wrap(*args,**kwargs):
+        if print_it:
+            func(*args, **kwargs)
+    return wrap
+
+@print_fn
+def print_(*args, **kwargs):
+    "use callback function to avoid typing 'print_it' the whole time"
+    return print(*args, **kwargs)
 
