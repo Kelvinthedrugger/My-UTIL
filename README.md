@@ -75,6 +75,26 @@ def sleep_10s():
 print("func name: %s\ndoc-string: %s" % (func.__name__, func.__doc__))
 ```
 
+use wrapper function to decorate 'print()'
+
+one should just use pysnooper
+
+```python
+"use callback function to avoid typing 'print_it' the whole time"
+
+print_it=True # prints it like print, else, don't print a thing
+
+def print_fn(func):
+  def wrap(*args,**kwargs):
+    if print_it:
+      func(*args, **kwargs)
+  return wrap
+
+@print_fn
+def print_(*args, **kwargs):
+  return print(*args, **kwargs)
+```
+
 ### fetch
 
 when downloading code snippets from github (e.g., just 1 instead of the whole repo), use snippets below to not press 'Raw' button
