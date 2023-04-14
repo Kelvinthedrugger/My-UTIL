@@ -13,3 +13,29 @@ def download_file(url, fname=""):
                     f.write(chunk)
     return fname
 
+## decorator for multi-processing
+## ref to my impl: https://github.com/Kelvinthedrugger/-AI-/blob/main/PLURK/PLURK_EZ_GET/ultimate_fetch.py#L132
+"not tested! not sure if @mult is better than just mult(func, tasks)"
+def mult(func, tasks):
+    """
+    run 'func' with multi-processing
+    usage:
+        @mult
+        def fun1():
+            ...
+    """
+    # TODO: parse **kwargs so that it fits the format?
+    #def wrap_it(*args, **kwargs):
+    def wrap_it(tasks):
+        import multiprocessing
+        processes = []
+        for task in tasks:
+            task = tuple(task) # not tested
+            p = multiprocessing.Process(target=func, args=task)
+            processes.append(p)
+            p.start()
+
+        for process in processes:
+            process.join()
+    return wrap_it
+
