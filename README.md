@@ -14,13 +14,15 @@ should develop this using 'nbdev' (and update the pkg
 inside a docker container, the way we used to do)
 
 ### Note
+As a workaround to 'fold' feature in html, use the <details> and <summary> tags. It even works on Github:
+<details>
+<summary>click here</summary>
+made you look.
 
-develop this repo with nbdev (or at least .ipynb)
+(code example here, but let's not get recursive!)
+</details>
 
 #### TODO
-
-at least add 'convert ipynb to script' script that only
-export the designated cells
 
 ### Debugging
 
