@@ -67,6 +67,8 @@ def mult(func, tasks):
         @mult
         def fun1():
             ...
+    tasks: list of arguments to 'func', covered with a tuple
+           e.g., (arg_1, arg_2)
     """
     # TODO: parse **kwargs so that it fits the format?
     #def wrap_it(*args, **kwargs):
@@ -74,7 +76,9 @@ def mult(func, tasks):
         import multiprocessing
         processes = []
         for task in tasks:
-            task = tuple(task) # not tested
+            # not tested
+            if not isinstance(task, tuple):
+                task = (task,)
             p = multiprocessing.Process(target=func, args=task)
             processes.append(p)
             p.start()
