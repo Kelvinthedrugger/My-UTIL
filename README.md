@@ -22,7 +22,9 @@ made you look.
 (code example here, but let's not get recursive!)
 </details>
 
-#### TODO
+#### tools
+
+PyPDF2 package is working, can be useful when it comes to extracting texts from pdfs
 
 ### Debugging
 
@@ -119,4 +121,6 @@ torch.cuda.empty_cache()
 ### TODO
 
 fastai stuff: fastcore, etc; e.g., @patch (in fastcore/basic.py) can be very versatile
+
+script to convert 'bookmark in browser' to .json, or python dict, so that it's easier to manage for me
 
