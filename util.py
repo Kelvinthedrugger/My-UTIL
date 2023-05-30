@@ -114,3 +114,19 @@ def print_(*args, **kwargs):
     "use callback function to avoid typing 'print_it' the whole time"
     return print(*args, **kwargs)
 
+## to see how much space per variable occupies in memory
+def sizeof_fmt(num, suffix='B'):
+    ''' by Fred Cirera,  https://stackoverflow.com/a/1094933/1870254, modified'''
+    for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
+        if abs(num) < 1024.0:
+            return "%3.1f %s%s" % (num, unit, suffix)
+        num /= 1024.0
+    return "%.1f %s%s" % (num, 'Yi', suffix)
+
+def get_variable_size(size=10):
+    from sys import getsizeof
+    """# can be 'locals()' or 'globals()'"""
+    for name, size in sorted(((name, getsizeof(value)) for name, value in list(
+                              globals().items())), key= lambda x: -x[1])[:size]:
+        print("{:>30}: {:>8}".format(name, sizeof_fmt(size)))
+
