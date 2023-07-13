@@ -120,7 +120,9 @@ torch.cuda.empty_cache()
 
 ### TODO
 
-fastai stuff: fastcore, etc; e.g., @patch (in fastcore/basic.py) can be very versatile
+* fastai stuff: fastcore, etc; e.g., @patch (in fastcore/basic.py) can be very versatile
 
-script to convert 'bookmark in browser' to .json, or python dict, so that it's easier to manage for me
+* script to convert 'bookmark in browser' to .json, or python dict, so that it's easier to manage for me
+
+* add plot stuff, pretty sure i've done it (mostly just matplotlib)
 
