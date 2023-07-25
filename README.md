@@ -118,11 +118,32 @@ torch.cuda.empty_cache()
 
 ```
 
+plot multiple curves (e.g., loss, accuracy, some metrics, etc)
+
+```python
+from matplotlib import pyplot as plt
+def plotit(inp_L, legends=None, y_lim=0.1, figsize=(12,8), title=None):
+  plt.figure(figsize=figsize)
+  lgnd = []
+  for inp in inp_L:
+    plt.plot(range(len(inp)), inp)
+
+  if legends is not None and isinstance(legends, list):
+    plt.legend(legends)
+  plt.ylim([0,y_lim])
+  if title is not None:
+    plt.title(title)
+  plt.show()
+
+## usage
+### currently don't support self defined value in x axis of the plot
+plotit([curve_1, curve_2, ...], [legends_1, legends_2], ...)
+
+```
+
 ### TODO
 
 * fastai stuff: fastcore, etc; e.g., @patch (in fastcore/basic.py) can be very versatile
 
 * script to convert 'bookmark in browser' to .json, or python dict, so that it's easier to manage for me
-
-* add plot stuff, pretty sure i've done it (mostly just matplotlib)
 
