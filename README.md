@@ -35,6 +35,19 @@ document.querySelector("#top-toolbar > colab-connect-button").shadowRoot.querySe
 setInterval(ClickConnect,100000)
 ```
 
+zip / unzip pickle file in python
+```python
+import bz2 # to zip a pickle object
+#import pickle
+def compressed_pickle(title, data):
+ with bz2.BZ2File(title + '.pbz2', 'w') as f:
+  pickle.dump(data, f)
+def decompress_pickle(file):
+ data = bz2.BZ2File(file, 'rb')
+ data = pickle.load(data)
+ return data
+```
+
 ### Debugging
 
 #### Python
