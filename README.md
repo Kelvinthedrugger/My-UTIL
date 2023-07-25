@@ -26,6 +26,15 @@ made you look.
 
 PyPDF2 package is working, can be useful when it comes to extracting texts from pdfs
 
+on google colab
+```javascript
+function ClickConnect(){
+console.log("Working");
+document.querySelector("#top-toolbar > colab-connect-button").shadowRoot.querySelector("#connect").click();
+}
+setInterval(ClickConnect,100000)
+```
+
 ### Debugging
 
 #### Python
