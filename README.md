@@ -38,7 +38,7 @@ setInterval(ClickConnect,100000)
 zip / unzip pickle file in python
 ```python
 import bz2 # to zip a pickle object
-#import pickle
+import pickle
 def compressed_pickle(title, data):
  with bz2.BZ2File(title + '.pbz2', 'w') as f:
   pickle.dump(data, f)
