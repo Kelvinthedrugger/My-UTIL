@@ -164,8 +164,7 @@ plotit([curve_1, curve_2, ...], [legends_1, legends_2], ...)
 ```
 
 ### TODO
-
-* fastai stuff: fastcore, etc; e.g., @patch (in fastcore/basic.py) can be very versatile
-
-* script to convert 'bookmark in browser' to .json, or python dict, so that it's easier to manage for me
+- pack this up as a package. [ref](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+- fastai stuff: fastcore, etc; e.g., @patch (in fastcore/basic.py) can be very versatile
+- script to convert 'bookmark in browser' to .json, or python dict, so that it's easier to manage for me
 
