@@ -5,7 +5,7 @@
 # ref: https://stackoverflow.com/questions/16694907/download-large-file-in-python-with-requests
 def download_file(url, fname=""):
     import requests
-    if len(fname) = "":
+    if len(fname) = 0:
         # TODO: consider to check for existing files here?
         fname = url.split('/')[-1]
     # NOTE the stream=True parameter below
