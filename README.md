@@ -163,6 +163,24 @@ plotit([curve_1, curve_2, ...], [legends_1, legends_2], ...)
 
 ```
 
+#### use Netron to visualize onnx file in google colab
+[colab reference](https://colab.research.google.com/gist/blois/227d21df87fe8a390c2a23a93b3726f0/netron.ipynb#scrollTo=6SgpdxueV27d)
+```python
+# pip install netron
+import netron
+import portpicker
+from google.colab import output
+
+port = portpicker.pick_unused_port()
+
+# Read the model file and start the netron browser.
+with output.temporary():
+  netron.start(filename, port, browse=False)
+
+output.serve_kernel_port_as_iframe(port, height='800')
+```
+
+
 ### TODO
 - pack this up as a package. [ref](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
 - fastai stuff: fastcore, etc; e.g., @patch (in fastcore/basic.py) can be very versatile
