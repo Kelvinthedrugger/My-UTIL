@@ -162,6 +162,33 @@ def plotit(inp_L, legends=None, y_lim=0.1, figsize=(12,8), title=None):
 plotit([curve_1, curve_2, ...], [legends_1, legends_2], ...)
 
 ```
+#### check gpu usage
+
+```python
+def gpu_usage():
+    print("torch.cuda.memory_allocated: %fGB"%(torch.cuda.memory_allocated(0)/1073741824))
+    print("torch.cuda.memory_reserved: %fGB"%(torch.cuda.memory_reserved(0)/1073741824))
+    print("torch.cuda.max_memory_reserved: %fGB"%(torch.cuda.max_memory_reserved(0)/1073741824))
+    print('__CUDA Device Total Memory [GB]:', torch.cuda.get_device_properties(0).total_memory/1e9)
+    
+def gpu_info():
+    print('__CUDNN VERSION:', torch.backends.cudnn.version())
+    print('__CUDA Device Name:', torch.cuda.get_device_name(0))
+    print('__CUDA Device Total Memory [GB]:', torch.cuda.get_device_properties(0).total_memory/1e9)
+
+gpu_info()
+gpu_usage()
+
+# expected output
+__CUDNN VERSION: 8700
+__CUDA Device Name: Tesla V100-SXM2-32GB
+__CUDA Device Total Memory [GB]: 34.089730048
+torch.cuda.memory_allocated: 0.000000GB
+torch.cuda.memory_reserved: 0.000000GB
+torch.cuda.max_memory_reserved: 0.000000GB
+__CUDA Device Total Memory [GB]: 34.089730048
+```
+
 
 #### use Netron to visualize onnx file in google colab
 [colab reference](https://colab.research.google.com/gist/blois/227d21df87fe8a390c2a23a93b3726f0/netron.ipynb#scrollTo=6SgpdxueV27d)
